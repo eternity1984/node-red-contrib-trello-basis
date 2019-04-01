@@ -1,0 +1,10 @@
+{
+    "trello": {
+        "label": {
+            "config": "Query Auth",
+            "method": "Method",
+            "url": "Path",
+            "query": "Query"
+        }
+    }
+}

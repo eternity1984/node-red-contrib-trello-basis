@@ -1,0 +1,8 @@
+{
+    "config": {
+        "label": {
+            "key" : "API Key",
+            "token": "Token"
+        }
+    }
+}

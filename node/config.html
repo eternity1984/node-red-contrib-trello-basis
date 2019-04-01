@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    RED.nodes.registerType("trello-config", {
+        category: "config",
+        defaults: {
+            name: { value: "" }
+        },
+        credentials: {
+            key: { type: "password" },
+            token: { type: "password" }
+        },
+        label: function() {
+            return this.name || "trello-config";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="trello-config">
+    <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+      <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-key"><i class="fa fa-key"></i> <span data-i18n="config.label.key"></span></label>
+        <input type="password" id="node-config-input-key" placeholder="" />
+      </div>
+    <div class="form-row">
+      <label for="node-config-input-token"><i class="fa fa-key"></i> <span data-i18n="config.label.token"></span></label>
+      <input type="password" id="node-config-input-token" placeholder="" />
+    </div>
+</script>

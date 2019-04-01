@@ -1,0 +1,54 @@
+
+<script type="text/javascript">
+    RED.nodes.registerType('trello', {
+        category: 'social',
+        color: "#4e97c2",
+        icon: "trello.png",
+        inputs: 1,
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            config: { type: "trello-config", required: true },
+            method: { value: "GET" },
+            url: { value: "" },
+            query: { value: "{}" },
+        },
+        label: function() {
+            return this.name || "trello";
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic" : "";
+        },
+        oneditprepare: function() {
+            $('#node-input-query').typedInput({types: ['json']});
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="trello">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+      <label for="node-input-config"><i class="fa fa-sign-in"></i> <span data-i18n="trello.label.config"></span></label>
+      <input id="node-input-config"></input>
+    </div>
+    <div class="form-row">
+        <label for="node-input-method"><i class="fa fa-tasks"></i> <span data-i18n="trello.label.method"></span></label>
+        <select type="text" id="node-input-method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-globe"></i> <span data-i18n="trello.label.url"></span></label>
+        <input type="text" id="node-input-url" placeholder="/{object}/{id}/...">
+    </div>
+    <div class="form-row">
+        <label for="node-input-query"><i class="fa fa-sliders"></i> <span data-i18n="trello.label.query"></span></label>
+        <input id="node-input-query" placeholder="">
+    </div>
+</script>

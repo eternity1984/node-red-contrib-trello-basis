@@ -1,0 +1,24 @@
+{
+    "name": "node-red-contrib-trello-basis",
+    "version": "0.1.0",
+    "keywords": [
+        "node-red",
+        "trello",
+        "api"
+    ],
+    "dependencies": {
+        "url-join": "^4.0.0",
+        "node-trello": "^1.3.0"
+    },
+    "license": "MIT License",
+    "node-red": {
+        "nodes": {
+            "trello-credentials": "node/config.js",
+            "trello": "node/trello.js"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eternity1984/node-red-contrib-trello-basis.git"
+    }
+}

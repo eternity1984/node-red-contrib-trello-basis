@@ -1,0 +1,10 @@
+{
+    "trello": {
+        "label": {
+            "config": "認証情報",
+            "method": "メソッド",
+            "url": "パス",
+            "query": "クエリ"
+        }
+    }
+}

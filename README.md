@@ -1,6 +1,6 @@
-![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg)
-
 # node-red-contrib-trello-basis
+
+![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg)
 
 
 ## Acknowledgements
