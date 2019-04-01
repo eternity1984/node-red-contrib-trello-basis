@@ -17,7 +17,7 @@ To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/addi
 
 ## Acknowledgements
 This software uses the following open source software:
--   [node-trello](https://github.com/adunkman/node-trello) for communicating to the [Trello API](https://developers.trello.com/).
+-   [node-trello](https://github.com/adunkman/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
 
 ## License
 This software is released under the [MIT License](http://opensource.org/licenses/mit-license.php).
