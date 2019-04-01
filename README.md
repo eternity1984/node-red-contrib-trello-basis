@@ -1,7 +1,6 @@
-# node-red-contrib-trello-basis
-
 ![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg)
 
+# node-red-contrib-trello-basis
 A set of [Node-RED](http://www.nodered.org/) nodes to interact with the [Trello API](https://developers.trello.com/).
 
 ## Installation
