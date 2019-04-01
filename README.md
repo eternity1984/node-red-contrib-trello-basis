@@ -1,4 +1,5 @@
-![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4bf2afde7d4043bd8523fd70d6d7b1fd)](https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eternity1984/node-red-contrib-trello-basis&amp;utm_campaign=Badge_Grade)
+![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg) ![npm](https://img.shields.io/badge/npm-v6.9.0-blue.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4bf2afde7d4043bd8523fd70d6d7b1fd)](https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eternity1984/node-red-contrib-trello-basis&amp;utm_campaign=Badge_Grade)
 
 # node-red-contrib-trello-basis
 A set of [Node-RED](http://www.nodered.org/) nodes to interact with the [Trello API](https://developers.trello.com/).
@@ -6,7 +7,6 @@ A set of [Node-RED](http://www.nodered.org/) nodes to interact with the [Trello 
 ## Installation
 Run the following command in the root directory of your Node-RED install:
 ```shell
-$ cd $HOME/.node-red
 $ npm install -s node-red-contrib-trello-basis
 ```
 
