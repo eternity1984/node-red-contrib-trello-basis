@@ -12,9 +12,6 @@ $ npm install -s node-red-contrib-trello-basis
 
 To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
 
-> **NOTE**: For the deprecated staging environment use version 0.1.0:  
-> `$ npm i node-red-contrib-trello-basis@0.1.0`
-
 ## Acknowledgements
 This software uses the following open source software:
 -   [node-trello](https://github.com/adunkman/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
