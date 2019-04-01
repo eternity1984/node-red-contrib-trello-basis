@@ -15,6 +15,9 @@ To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/addi
 ## Example
 ![get-all-lists](/images/example-get-all-lists.gif)
 
+> **WARNING**:  
+> The `DELETE` action is not reversible.
+
 ## Acknowledgements
 This software uses the following open source software:
 -   [node-trello](https://github.com/adunkman/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
