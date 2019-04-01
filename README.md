@@ -15,10 +15,9 @@ To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/addi
 > **NOTE**: For the deprecated staging environment use version 0.1.0:  
 > `$ npm i node-red-contrib-trello-basis@0.1.0`
 
-
 ## Acknowledgements
 This software uses the following open source software:
-- [node-trello](https://github.com/adunkman/node-trello) for communicating to the [Trello API](https://developers.trello.com/).
+-   [node-trello](https://github.com/adunkman/node-trello) for communicating to the [Trello API](https://developers.trello.com/).
 
 ## License
 This software is released under the [MIT License](http://opensource.org/licenses/mit-license.php).
