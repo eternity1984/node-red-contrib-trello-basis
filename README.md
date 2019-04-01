@@ -12,6 +12,9 @@ $ npm install -s node-red-contrib-trello-basis
 
 To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
 
+## Example
+![get-all-lists](/images/example-get-all-lists.gif)
+
 ## Acknowledgements
 This software uses the following open source software:
 -   [node-trello](https://github.com/adunkman/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
