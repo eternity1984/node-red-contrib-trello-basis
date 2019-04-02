@@ -1,5 +1,6 @@
 const join = require("url-join");
 const Trello = require("node-trello");
+const mustache = require("mustache");
 
 module.exports = function(RED) {
     function TrelloNode(config) {
@@ -13,16 +14,20 @@ module.exports = function(RED) {
 
         node.on("input", function(msg) {
             var method = msg.method || config.method;
-            var path = join("/1", msg.url || config.url);    
+            var url = msg.url || config.url;
+            if (typeof msg === "object") {
+                url = mustache.render(url, msg);
+            }
+            var path = join("/1", url);
             var query = RED.util.evaluateNodeProperty(
                 (msg.query || config.query || "{}"), "json", node);
             trello.request(method, path, query, (err, data) => {
                 if (err) { 
                     node.error(err, msg);
-                    return;
+                } else {
+                    msg.payload = data;
+                    node.send(msg);
                 }
-                msg.payload = data;
-                node.send(msg);
             });
         });
     }

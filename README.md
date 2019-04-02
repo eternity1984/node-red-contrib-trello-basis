@@ -18,9 +18,22 @@ $ npm install -s node-red-contrib-trello-basis
 
 To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
 
+### You can edit an existing configuration or use a mustache-syntax to include variables from msg
+1.  Configure the **Path** field on the trello node to be `/boards/{{payload.id}}/lists`.
+
+2.  Add a Function node and copy the following code into the **Function** field:
+    ```javascript
+    msg.payload = {
+        "id": "ZnX6wsBj"
+    };
+    return msg;
+    ```
+
 ## Acknowledgements
-This software uses the following open source software:
--   [node-trello](https://github.com/adunkman/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
+This project uses the following open source software:
+-   [node-trello](https://www.npmjs.com/package/node-trello) for communicating with the [Trello API](https://developers.trello.com/).
+-   [url-join](https://www.npmjs.com/package/url-join) for joining an absolute and a relative URL.
+-   [mustache](https://www.npmjs.com/package/mustache) for templating the URL.
 
 ## License
-This software is released under the [MIT License](http://opensource.org/licenses/mit-license.php).
+This project is released under the [MIT License](http://opensource.org/licenses/mit-license.php).
