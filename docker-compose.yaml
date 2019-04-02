@@ -1,0 +1,18 @@
+# using docker-compose for local code testing and development
+version: '2'
+services:
+  node-red-docker:
+    image: nodered/node-red-docker
+    container_name: nodered
+    user: root
+    ports:
+    - "1880:1880"
+    volumes:
+      - $PWD:/data/node-red-contrib-trello-basis/
+    command: >
+      bash -c "cd /data &&
+      npm install node-red-contrib-trello-basis &&
+      cd /usr/src/node-red &&
+      npm start -- --userDir /data"
+networks: {}
+volumes: {}
