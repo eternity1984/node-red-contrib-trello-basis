@@ -10,13 +10,13 @@ Run the following command in the root directory of your Node-RED install:
 $ npm install -s node-red-contrib-trello-basis
 ```
 
-To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
-
-## Example
+## Usage
 ![get-all-lists](/images/example-get-all-lists.gif)
 
 > **WARNING**:  
 > The `DELETE` action is not reversible.
+
+To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
 
 ## Acknowledgements
 This software uses the following open source software:
