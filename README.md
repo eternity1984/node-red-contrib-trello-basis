@@ -1,5 +1,5 @@
-![Platform](https://img.shields.io/badge/Platform-Node--RED-%238e0000.svg) ![npm](https://img.shields.io/badge/npm-v6.9.0-blue.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4bf2afde7d4043bd8523fd70d6d7b1fd)](https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eternity1984/node-red-contrib-trello-basis&amp;utm_campaign=Badge_Grade)
+[![Platform](https://img.shields.io/badge/Platform-Node--RED-brown.svg)](https://nodered.org/) ![npm](https://img.shields.io/badge/npm-6.9.0-blue.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4bf2afde7d4043bd8523fd70d6d7b1fd)](https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eternity1984/node-red-contrib-trello-basis&amp;utm_campaign=Badge_Grade) [![npm version](https://badge.fury.io/js/node-red-contrib-trello-basis.svg)](https://badge.fury.io/js/node-red-contrib-trello-basis)
 
 # node-red-contrib-trello-basis
 A set of [Node-RED](http://www.nodered.org/) nodes to interact with the [Trello API](https://developers.trello.com/).
@@ -18,16 +18,20 @@ $ npm install -s node-red-contrib-trello-basis
 
 To learn more about [Adding Nodes](https://nodered.org/docs/getting-started/adding-nodes), take a look through [Node-RED](http://www.nodered.org/) documents.
 
-### You can edit an existing configuration or use a mustache-syntax to include variables from msg
+### You can use a mustache-syntax to include variables from msg
+For example, dynamically changing the **Path** field:
 1.  Configure the **Path** field on the trello node to be `/boards/{{payload.id}}/lists`.
 
 2.  Add a Function node and copy the following code into the **Function** field:
     ```javascript
     msg.payload = {
-        "id": "ZnX6wsBj"
+        "id": "YOUR_BOARD_ID"
     };
     return msg;
-    ```
+    ```  
+    ![your-board-id](/images/example-your-board-id.png)
+
+3.  Wire the function and trello nodes.
 
 ## Acknowledgements
 This project uses the following open source software:
