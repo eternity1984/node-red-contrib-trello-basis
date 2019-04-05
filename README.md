@@ -11,7 +11,7 @@ $ npm install -s node-red-contrib-trello-basis
 ```
 
 ## Usage
-![get-all-lists](/images/example-get-all-lists.gif)
+![get-all-lists](/.images/example-get-all-lists.gif)
 
 > **WARNING**:  
 > The `DELETE` action is not reversible.
@@ -29,7 +29,7 @@ For example, dynamically changing the **Path** field:
     };
     return msg;
     ```  
-    ![your-board-id](/images/example-your-board-id.png)
+    ![your-board-id](/.images/example-your-board-id.png)
 
 3.  Wire the function and trello nodes.
 
