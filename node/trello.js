@@ -13,14 +13,12 @@ module.exports = function(RED) {
             trelloConfig.credentials.token);
 
         node.on("input", function(msg) {
-            var method = msg.method || config.method;
-            var url = msg.url || config.url;
-            if (typeof msg === "object") {
-                url = mustache.render(url, msg);
+            var method = config.method;
+            var path = join("/1", mustache.render(msg.path || config.path, msg));
+            var query = msg.query || config.query || {};
+            if (typeof query !== "object") {
+                query = RED.util.evaluateNodeProperty(query, "json", node);
             }
-            var path = join("/1", url);
-            var query = RED.util.evaluateNodeProperty(
-                (msg.query || config.query || "{}"), "json", node);
             trello.request(method, path, query, (err, data) => {
                 if (err) { 
                     node.error(err, msg);
