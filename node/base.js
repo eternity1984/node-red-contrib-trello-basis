@@ -1,7 +1,7 @@
 const join      = require("url-join");
 const Trello    = require("node-trello");
 const mustache  = require("mustache");
-'use strict';
+"use strict";
 
 module.exports = class TrelloApiNode {
     constructor(RED, definition, options = {}) {
@@ -34,7 +34,7 @@ module.exports = class TrelloApiNode {
     }
 
     getQueryParams(RED, msg, definition) {
-        return {}
+        return {};
     }
 
     getApiParams(RED, msg, definition) {
@@ -42,4 +42,4 @@ module.exports = class TrelloApiNode {
         var queryParams = this.getQueryParams(RED, msg, definition) || {};
         return [pathParams, queryParams];
     }
-}
+};
