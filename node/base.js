@@ -4,7 +4,7 @@ const mustache  = require("mustache");
 "use strict";
 
 module.exports = class TrelloApiNode {
-    constructor(RED, definition, options = {}) {
+    constructor(RED, definition) {
         RED.nodes.createNode(this, definition);
         var node = this;
 
