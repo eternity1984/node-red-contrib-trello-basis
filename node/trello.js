@@ -1,33 +1,17 @@
-const join = require("url-join");
-const Trello = require("node-trello");
-const mustache = require("mustache");
+const TrelloApiNode = require("./base");
 
 module.exports = function(RED) {
-    function TrelloNode(config) {
-        RED.nodes.createNode(this, config);
-        var node = this;
-
-        var trelloConfig = RED.nodes.getNode(config.config);
-        var trello = new Trello(
-            trelloConfig.credentials.key, 
-            trelloConfig.credentials.token);
-
-        node.on("input", function(msg) {
-            var method = config.method;
-            var path = join("/1", mustache.render(msg.path || config.path, msg));
-            var query = msg.query || config.query || {};
+    class TrelloNode extends TrelloApiNode {
+        constructor(definition) {
+            super(RED, definition, {});
+        }
+        getQueryParams(RED, msg, definition) {
+            var query = msg.query || definition.query || {};
             if (typeof query !== "object") {
-                query = RED.util.evaluateNodeProperty(query, "json", node);
+                query = RED.util.evaluateNodeProperty(query, "json", this);
             }
-            trello.request(method, path, query, (err, data) => {
-                if (err) { 
-                    node.error(err, msg);
-                } else {
-                    msg.payload = data;
-                    node.send(msg);
-                }
-            });
-        });
+            return query;
+        }
     }
     RED.nodes.registerType("trello", TrelloNode);
 };
