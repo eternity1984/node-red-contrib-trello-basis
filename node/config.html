@@ -5,8 +5,8 @@
             name: { value: "" }
         },
         credentials: {
-            key: { type: "password" },
-            token: { type: "password" }
+            key: { type: "password", required: true },
+            token: { type: "password", required: true }
         },
         label: function() {
             return this.name || "trello-config";
