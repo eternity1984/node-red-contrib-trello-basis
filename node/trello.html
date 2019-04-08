@@ -10,7 +10,7 @@
             name: { value: "" },
             config: { type: "trello-config", required: true },
             method: { value: "GET" },
-            url: { value: "" },
+            path: { value: "" },
             query: { value: "{}" },
         },
         label: function() {
@@ -44,8 +44,8 @@
         </select>
     </div>
     <div class="form-row">
-        <label for="node-input-url"><i class="fa fa-globe"></i> <span data-i18n="trello.label.url"></span></label>
-        <input type="text" id="node-input-url" placeholder="/{object}/{id}/...">
+        <label for="node-input-path"><i class="fa fa-globe"></i> <span data-i18n="trello.label.path"></span></label>
+        <input type="text" id="node-input-path" placeholder="/{object}/{id}/...">
     </div>
     <div class="form-row">
         <label for="node-input-query"><i class="fa fa-sliders"></i> <span data-i18n="trello.label.query"></span></label>

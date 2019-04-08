@@ -3,7 +3,7 @@
         "label": {
             "config": "Query Auth",
             "method": "Method",
-            "url": "Path",
+            "path": "Path",
             "query": "Query"
         }
     }
