@@ -4,7 +4,8 @@
             "config": "認証情報",
             "method": "メソッド",
             "path": "パス",
-            "query": "クエリ"
+            "query": "クエリ",
+            "pathParam": "の参照先"
         }
     }
 }

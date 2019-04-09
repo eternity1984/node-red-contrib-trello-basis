@@ -4,7 +4,8 @@
             "config": "Query Auth",
             "method": "Method",
             "path": "Path",
-            "query": "Query"
+            "query": "Query",
+            "pathParam": "are keyed from"
         }
     }
 }

@@ -1,7 +1,7 @@
 
 <script type="text/javascript">
-    RED.nodes.registerType('trello', {
-        category: 'social',
+    RED.nodes.registerType("trello", {
+        category: "social",
         color: "#4e97c2",
         icon: "trello.png",
         inputs: 1,
@@ -12,6 +12,8 @@
             method: { value: "GET" },
             path: { value: "" },
             query: { value: "{}" },
+            pathParam: { value: "" , validate: RED.validators.typedInput('pathParamType')},
+            pathParamType: { value: "full"},
         },
         label: function() {
             return this.name || "trello";
@@ -20,7 +22,28 @@
             return this.name ? "node_label_italic" : "";
         },
         oneditprepare: function() {
-            $('#node-input-query').typedInput({types: ['json']});
+            $("#node-input-query").typedInput({
+                types: ["json"]
+            }).typedInput("width", "68%");
+            $("#node-input-pathParam").typedInput({
+                types: [
+                    {
+                        value: "full",
+                        label: RED._("node-red:debug.msgobj"),
+                        hasValue: false
+                    },
+                    "msg",
+                    "flow",
+                    "global",
+                ],
+                typeField: "#node-input-pathParamType"
+            }).typedInput("width", "68%");
+            $("#node-input-pathParam").on('change', function() {
+                if ($("#node-input-pathParam").typedInput('type') === "msg" &&
+                    $("#node-input-pathParam").typedInput('value') === "") {
+                    $("#node-input-pathParam").typedInput('value', 'payload');
+                }
+            });
         }
     });
 </script>
@@ -36,7 +59,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-method"><i class="fa fa-tasks"></i> <span data-i18n="trello.label.method"></span></label>
-        <select type="text" id="node-input-method">
+        <select type="text" id="node-input-method" style="width:70%">
             <option value="GET">GET</option>
             <option value="POST">POST</option>
             <option value="PUT">PUT</option>
@@ -46,6 +69,14 @@
     <div class="form-row">
         <label for="node-input-path"><i class="fa fa-globe"></i> <span data-i18n="trello.label.path"></span></label>
         <input type="text" id="node-input-path" placeholder="/{object}/{id}/...">
+    </div>
+    <div class="form-row">
+        <label></label>
+        <label for="node-input-pathParam" style="width:auto"><span><code>{{ mustache }}</code></span> <span data-i18n="trello.label.pathParam"></span></label>
+        <br>
+        <label></label>
+        <input id="node-input-pathParam" placeholder="">
+        <input type="hidden" id="node-input-pathParamType">
     </div>
     <div class="form-row">
         <label for="node-input-query"><i class="fa fa-sliders"></i> <span data-i18n="trello.label.query"></span></label>
