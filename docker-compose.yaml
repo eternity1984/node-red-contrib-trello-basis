@@ -8,7 +8,7 @@ services:
     ports:
     - "1880:1880"
     volumes:
-      - $PWD:/data/node-red-contrib-trello-basis/
+      - ./:/data/node-red-contrib-trello-basis/
     command: >
       bash -c "cd /data &&
       npm install node-red-contrib-trello-basis &&
