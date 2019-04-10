@@ -13,6 +13,12 @@ module.exports = class TrelloApiNode {
             trelloConfig.credentials.key, 
             trelloConfig.credentials.token);
 
+        var privateGetApiParams = function(msg) {
+            var pathParams = node.getPathParams(RED, msg, definition) || {};
+            var queryParams = node.getQueryParams(RED, msg, definition) || {};
+            return [pathParams, queryParams];
+        };
+
         node.on("input", function(msg) {
             var method  = definition.method;
             var path = msg.path || definition.path;
@@ -23,7 +29,7 @@ module.exports = class TrelloApiNode {
                 return;
             }
             ////////////////////////////////////////////////////////////
-            var [pathParams, queryParams] = this.getApiParams(RED, msg, definition);
+            var [pathParams, queryParams] = privateGetApiParams(msg);
             var formattedPath = mustache.render(path, pathParams);
             trello.request(method, join("/1", formattedPath), queryParams, (err, data) => {
                 if (err) { 
@@ -35,18 +41,10 @@ module.exports = class TrelloApiNode {
             });
         });
     }
-
     getPathParams(RED, msg, definition) {
         return msg;
     }
-
     getQueryParams(RED, msg, definition) {
         return {};
-    }
-
-    getApiParams(RED, msg, definition) {
-        var pathParams = this.getPathParams(RED, msg, definition) || {};
-        var queryParams = this.getQueryParams(RED, msg, definition) || {};
-        return [pathParams, queryParams];
     }
 };
