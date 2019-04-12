@@ -22,13 +22,6 @@ module.exports = class TrelloApiNode {
         node.on("input", function(msg) {
             var method  = definition.method;
             var path = msg.path || definition.path;
-            // For compatibility. the following code will be removed in 0.4
-            var url = msg.url || definition.url;
-            if (((typeof path === "undefined") || (path === "")) && (definition.url !== "")) {
-                node.warn("Sorry for the inconvenience. Save the node config again to improve. (Open config and press DONE.)");
-                return;
-            }
-            ////////////////////////////////////////////////////////////
             var [pathParams, queryParams] = privateGetApiParams(msg);
             var formattedPath = mustache.render(path, pathParams);
             trello.request(method, join("/1", formattedPath), queryParams, (err, data) => {
