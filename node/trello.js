@@ -15,11 +15,13 @@ module.exports = function(RED) {
             }
         }
         getQueryParams(RED, msg, definition) {
-            var query = msg.query || definition.query || {};
-            if (typeof query !== "object") {
-                query = RED.util.evaluateNodeProperty(query, "json", this);
+            var paramType = definition.queryParamType;
+            if (paramType === "full") {
+                return msg;
+            } else {
+                var param = definition.queryParam;
+                return RED.util.evaluateNodeProperty(param, paramType, this, msg);
             }
-            return query;
         }
     }
     RED.nodes.registerType("trello", TrelloNode);

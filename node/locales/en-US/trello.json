@@ -5,7 +5,8 @@
             "method": "Method",
             "path": "Path",
             "query": "Query",
-            "pathParam": "are keyed from"
+            "pathParam": "are keyed from",
+            "queryParam": "are keyed from"
         }
     }
 }

@@ -5,7 +5,8 @@
             "method": "メソッド",
             "path": "パス",
             "query": "クエリ",
-            "pathParam": "の参照先"
+            "pathParam": "の参照先",
+            "queryParam": "の参照先"
         }
     }
 }

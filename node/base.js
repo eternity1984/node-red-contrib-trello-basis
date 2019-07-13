@@ -39,6 +39,11 @@ module.exports = class TrelloApiNode {
             }    
             var method  = definition.method;
             var path = msg.path || definition.path;
+            var query = msg.query || definition.query || {};
+            if (typeof query !== "object") {
+                query = RED.util.evaluateNodeProperty(query, "json", this);
+            }
+            query = JSON.stringify(query);
             // For compatibility. the following code will be removed in 0.4
             var url = msg.url || definition.url;
             if (((typeof path === "undefined") || (path === "")) && (definition.url !== "")) {
@@ -48,7 +53,8 @@ module.exports = class TrelloApiNode {
             ////////////////////////////////////////////////////////////
             var [pathParams, queryParams] = privateGetApiParams(msg);
             var formattedPath = mustache.render(path, pathParams);
-            trello.request(method, join("/1", formattedPath), queryParams, (err, data) => {
+            var formattedQuery = JSON.parse(mustache.render(query, queryParams));
+            trello.request(method, join("/1", formattedPath), formattedQuery, (err, data) => {
                 if (err) { 
                     node.error(err, msg);
                 } else {
