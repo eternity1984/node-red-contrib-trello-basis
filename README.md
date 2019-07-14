@@ -1,5 +1,16 @@
-[![Platform](https://img.shields.io/badge/Platform-Node--RED-brown.svg)](https://nodered.org/) ![npm](https://img.shields.io/badge/npm-6.9.0-blue.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4bf2afde7d4043bd8523fd70d6d7b1fd)](https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eternity1984/node-red-contrib-trello-basis&amp;utm_campaign=Badge_Grade) [![npm version](https://badge.fury.io/js/node-red-contrib-trello-basis.svg)](https://badge.fury.io/js/node-red-contrib-trello-basis)
+<p align="center">
+    <a href="https://nodered.org/"><img src="https://img.shields.io/badge/Platform-Node--RED-brown.svg" alt="Platform"></a>
+    <a href="https://flows.nodered.org/node/node-red-contrib-trello-basis"><img src="https://img.shields.io/npm/v/node-red-contrib-trello-basis/latest?color=brightgreen&label=ver@latest" alt="npm@latest"></a>
+    <a href="https://www.npmjs.com/package/node-red-contrib-trello-basis"><img src="https://img.shields.io/npm/v/node-red-contrib-trello-basis/beta?color=inactive&label=ver@beta" alt="npm@beta"></a>
+    <img src="https://img.shields.io/badge/npm-6.9.0-blue.svg" alt="npm">
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/npm/l/node-red-contrib-trello-basis" alt="License: MIT"></a>
+    <br>
+    <a href="https://www.codacy.com/app/eternity1984/node-red-contrib-trello-basis"><img src="https://img.shields.io/codacy/grade/4bf2afde7d4043bd8523fd70d6d7b1fd?logo=codacy&logoWidth=18" alt="Codacy"></a>
+    <a href="https://lgtm.com/projects/g/eternity1984/node-red-contrib-trello-basis/"><img src="https://img.shields.io/lgtm/grade/javascript/github/eternity1984/node-red-contrib-trello-basis?label=code%20quality&logo=lgtm" alt="LGTM"></a>
+    <a href="https://lgtm.com/projects/g/eternity1984/node-red-contrib-trello-basis/alerts/"><img src="https://img.shields.io/lgtm/alerts/g/eternity1984/node-red-contrib-trello-basis.svg?logo=lgtm&logoWidth=18" alt="LGTM alert"></a>
+    <a href="#"><img src="https://img.shields.io/snyk/vulnerabilities/npm/node-red-contrib-trello-basis" alt="vulnerabilities"></a>    
+</p>
+
 
 # node-red-contrib-trello-basis
 A set of [Node-RED](http://www.nodered.org/) nodes to interact with the [Trello API](https://developers.trello.com/).
