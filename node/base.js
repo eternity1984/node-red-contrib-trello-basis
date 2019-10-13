@@ -20,6 +20,23 @@ module.exports = class TrelloApiNode {
         };
 
         node.on("input", function(msg) {
+            var injectionConfig = msg.trello_config;
+            if (typeof injectionConfig ==="object") {
+                trello = new Trello(
+                    injectionConfig.apikey, 
+                    injectionConfig.token);
+                node.warn("Dynamically specified credentials are used.");
+            } else if (typeof injectionConfig === "string") {
+                var nodeRef = RED.nodes.getNode(injectionConfig);
+                if ((typeof nodeRef === "object") && (nodeRef.type === "trello-config")) {
+                    trello = new Trello(
+                        nodeRef.credentials.key, 
+                        nodeRef.credentials.token);
+                    node.warn("Dynamically specified credentials are used.");
+                } else {
+                    node.warn("ValueError: `msg.trello_config` must be a string indicating the Trello-Config node ID");
+                }
+            }    
             var method  = definition.method;
             var path = msg.path || definition.path;
             // For compatibility. the following code will be removed in 0.4
