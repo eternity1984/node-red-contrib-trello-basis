@@ -2,14 +2,14 @@
 version: '2'
 services:
   node-red-docker:
-    image: nodered/node-red-docker
+    image: nodered/node-red:1.0.2
     container_name: nodered
     user: root
     ports:
     - "1880:1880"
     volumes:
       - ./:/data/node-red-contrib-trello-basis/
-    command: >
+    entrypoint: >
       bash -c "cd /data &&
       npm install node-red-contrib-trello-basis &&
       cd /usr/src/node-red &&
