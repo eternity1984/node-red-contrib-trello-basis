@@ -1,0 +1,30 @@
+{
+    "trello": {
+        "label": {
+            "config": "Query Auth",
+            "method": "Method",
+            "path": "Path",
+            "query": "Query",
+            "purpose": "Purpose"
+        },
+        "description": {
+            "purpose": {
+                "listsid": "Get information about a list",
+                "listsidactions": "List the actions on a list",
+                "listsidfield": "Get a specific property of a list",
+                "listsidboard": "Get the board a list is on",
+                "listsidcards": "List the cards in a list",
+                "listsid-1": "Update the properties of a list",
+                "listsidclosed": "Archive or unarchive a list",
+                "listsididboard": "Move a list to a new board",
+                "listsidname": "Rename a list",
+                "listsidpos": "Change the position of a list",
+                "listsidsoftlimit": "Set a soft limit for number of cards in the list",
+                "listsidsubscribed": "Subscribe or unsubscribe from a list",
+                "lists-1": "Create a new list on a board",
+                "listsidarchiveallcards": "Archive all cards in a list",
+                "listsidmoveallcards": "Move all cards in a list"
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    var purposes = {
+        "listsid": {
+            method: "GET",
+        },
+        "listsidfield": {
+            method: "GET",
+            disabled: true,
+        },
+        "listsidboard": {
+            method: "GET",
+        },
+        "listsidcards": {
+            method: "GET",
+        },
+        "listsid-1": {
+            method: "PUT",
+            disabled: true,
+        },
+        "listsidclosed": {
+            method: "PUT"
+        },
+    };
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType("trello-list", {
+        category: "social",
+        color: "#4e97c2",
+        icon: "trello.png",
+        inputs: 1,
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            config: { type: "trello-config", required: true },
+            purpose: { value: "" },
+            method: { value: "GET" },
+            path: { value: "" },
+            query: { value: "{}" },
+            pathParam: { value: "" , validate: RED.validators.typedInput('pathParamType')},
+            pathParamType: { value: "full"},
+        },
+        label: function() {
+            return this.name || "trello-list";
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic" : "";
+        },
+        oneditprepare: function() {
+            var node = this;
+            const inpPurpose = $("#node-input-purpose");
+            Object.keys(purposes).forEach(function (key) {
+                var element = purposes[key];
+                $("<option/>", {value: key})
+                .prop("disabled", element.disabled)
+                .text(node._("trello.description.purpose." + key))
+                .appendTo(inpPurpose);
+            });
+            inpPurpose.change(function() {
+                var key = inpPurpose.val();
+                $("#node-input-method").val(purposes[key].method);
+            })
+        },
+        oneditsave: function() {
+
+        },
+        oneditresize: function() {
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="trello-list">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+      <label for="node-input-config"><i class="fa fa-sign-in"></i> <span data-i18n="trello.label.config"></span></label>
+      <input id="node-input-config"></input>
+    </div>
+    <div class="form-row">
+        <label for="node-input-purpose"><i class="fa fa-tasks"></i> <span data-i18n="trello.label.purpose"></span></label>
+        <select type="text" id="node-input-purpose" style="width:70%">
+        </select>
+        <input type="hidden" id="node-input-method"></input>
+    </div>
+</script>
