@@ -1,7 +1,7 @@
+"use strict";
 const join      = require("url-join");
 const Trello    = require("node-trello");
 const mustache  = require("mustache");
-"use strict";
 
 module.exports = class TrelloApiNode {
     constructor(RED, definition) {
