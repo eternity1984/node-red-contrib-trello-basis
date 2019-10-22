@@ -8,18 +8,17 @@ module.exports = class TrelloApiNode {
         RED.nodes.createNode(this, definition);
         var node = this;
 
-        var trelloConfig = RED.nodes.getNode(definition.config);
-        var trello = new Trello(
-            trelloConfig.credentials.key, 
-            trelloConfig.credentials.token);
-
         var privateGetApiParams = function(msg) {
             var pathParams = node.getPathParams(RED, msg, definition) || {};
             var queryParams = node.getQueryParams(RED, msg, definition) || {};
             return [pathParams, queryParams];
         };
-
+        
         node.on("input", function(msg) {
+            var trelloConfig = RED.nodes.getNode(definition.config);
+            var trello = new Trello(
+                trelloConfig.credentials.key, 
+                trelloConfig.credentials.token);
             var injectionConfig = msg.trello_config;
             if (typeof injectionConfig ==="object") {
                 trello = new Trello(
