@@ -19,7 +19,8 @@ module.exports = class TrelloApiNode {
             return [pathParams, queryParams];
         };
 
-        node.on("input", function(msg) {
+        node.on("input", function(msg, send, done) {
+            send = send || function() { node.send.apply(node, arguments); }
             var injectionConfig = msg.trello_config;
             if (typeof injectionConfig ==="object") {
                 trello = new Trello(
@@ -55,11 +56,18 @@ module.exports = class TrelloApiNode {
             var formattedPath = mustache.render(path, pathParams);
             var formattedQuery = JSON.parse(mustache.render(query, queryParams));
             trello.request(method, join("/1", formattedPath), formattedQuery, (err, data) => {
-                if (err) { 
-                    node.error(err, msg);
+                if (err) {
+                    if (done) {
+                        done(err);
+                    } else {
+                        node.error(err, msg);
+                    }
                 } else {
                     msg.payload = data;
-                    node.send(msg);
+                    send(msg);
+                    if (done) {
+                        done();
+                    }
                 }
             });
         });
