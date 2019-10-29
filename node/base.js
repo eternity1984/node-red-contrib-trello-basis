@@ -20,7 +20,7 @@ module.exports = class TrelloApiNode {
         };
 
         node.on("input", function(msg, send, done) {
-            send = send || function() { node.send.apply(node, arguments); }
+            send = send || (() => node.send.apply(node, arguments));
             var injectionConfig = msg.trello_config;
             if (typeof injectionConfig ==="object") {
                 trello = new Trello(
